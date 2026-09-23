@@ -1,0 +1,50 @@
+spring:
+  application:
+    name: ers-ai-assistant
+  security:
+   oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:7080/realms/ers-ai
+
+  datasource:
+    driver-class-name: org.h2.Driver
+    username: admin
+    password: admin
+    url: jdbc:h2:file:C:\\Users\\a459367\\Documents\\chatMemory;AUTO_SERVER=true
+
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY}
+    chat:
+      memory:
+        repository:
+          jdbc:
+            initialize-schema: always
+    vectorstore:
+      qdrant:
+        initialize-schema: true
+        host: localhost
+        port: 6334
+        collection-name: documents
+    mcp:
+      client:
+        enabled: true
+        type: SYNC
+        request-timeout: PT120S
+
+        toolcallback:
+          enabled: true
+
+        stdio:
+          servers-configuration: classpath:mcp-servers.json
+  h2:
+    console:
+      enabled: true
+
+logging:
+  level:
+    org.springframework.ai.mcp: DEBUG
+    org.springframework.ai.mcp.client: DEBUG
+
+

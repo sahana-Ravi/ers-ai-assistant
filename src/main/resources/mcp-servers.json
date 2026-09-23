@@ -1,0 +1,20 @@
+{
+  "mcpServers": {
+    "mssql": {
+      "command": "npx.cmd",
+      "args": [
+        "--yes",
+        "--package",
+        "@connorbritain/mssql-mcp-reader",
+        "mssql-mcp-reader"
+      ],
+      "env": {
+        "SERVER_NAME": $SERVER_NAME,
+        "DATABASE_NAME": "master",
+        "SQL_AUTH_MODE": "sql",
+        "SQL_USERNAME": "sa",
+        "SQL_PASSWORD": $PASSWORD
+      }
+    }
+  }
+}
