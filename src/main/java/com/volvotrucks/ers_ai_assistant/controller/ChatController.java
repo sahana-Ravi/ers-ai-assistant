@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import org.springframework.beans.factory.ObjectProvider;
+import org.springframework.ai.tool.ToolCallback;
 import org.springframework.ai.tool.ToolCallbackProvider;
 
 @RestController
@@ -33,8 +35,9 @@ public class ChatController {
     Resource promptTemplate;
 
     public ChatController(
-            ChatClient.Builder chatClientBuilder, ChatMemory chatMemory, VectorStore vectorStore, SemanticCacheAdvisor semanticCacheAdvisor, ToolCallbackProvider mcpTools) {
-        this.mcpTools = mcpTools;
+            ChatClient.Builder chatClientBuilder, ChatMemory chatMemory, VectorStore vectorStore,
+            SemanticCacheAdvisor semanticCacheAdvisor, ObjectProvider<ToolCallbackProvider> mcpTools) {
+        this.mcpTools = mcpTools.getIfAvailable(() -> () -> new ToolCallback[0]);
         Advisor memoryAdvisor = MessageChatMemoryAdvisor.builder(chatMemory).build();
 
         this.chatClient = chatClientBuilder.defaultAdvisors(List.of(memoryAdvisor, semanticCacheAdvisor, new SimpleLoggerAdvisor())).build();

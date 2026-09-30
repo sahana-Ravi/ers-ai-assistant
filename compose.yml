@@ -9,7 +9,7 @@ services:
       KC_BOOTSTRAP_ADMIN_PASSWORD: admin
     command: start-dev
   redis:
-    image: redis
+    image: redis/redis-stack-server:latest
     container_name: redis
     ports:
       - "6379:6379"

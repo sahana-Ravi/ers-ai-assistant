@@ -27,11 +27,16 @@ spring:
         host: localhost
         port: 6334
         collection-name: documents
+      redis:
+        index-name: semantic-cache-index
+        prefix:
+          semantic-cache:
+
     mcp:
       client:
         enabled: true
         type: SYNC
-        request-timeout: PT120S
+        request-timeout: 30000
 
         toolcallback:
           enabled: true
@@ -41,10 +46,11 @@ spring:
   h2:
     console:
       enabled: true
-
 logging:
   level:
     org.springframework.ai.mcp: DEBUG
     org.springframework.ai.mcp.client: DEBUG
+    org.springframework.ai.chat.cache.semantic: DEBUG
+    org.springframework.ai.vectorstore.redis: DEBUG
 
 

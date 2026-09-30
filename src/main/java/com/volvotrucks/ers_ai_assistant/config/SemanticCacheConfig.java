@@ -19,12 +19,16 @@ public class SemanticCacheConfig {
         return RedisClient.builder().hostAndPort(host, port).build();
     }
     @Bean
-    SemanticCache semanticCache(VectorStore vectorStore,
-                                EmbeddingModel embeddingModel) {
+    SemanticCache semanticCache(
+            RedisClient redisClient,
+            EmbeddingModel embeddingModel) {
+
         return DefaultSemanticCache.builder()
-                .vectorStore(vectorStore)
+                .jedisClient(redisClient)
                 .embeddingModel(embeddingModel)
-                .similarityThreshold(0.8)
+                .indexName("semantic-cache-index")
+                .prefix("semantic-cache:")
+                .similarityThreshold(0.95)
                 .build();
     }
 
