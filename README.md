@@ -1,8 +1,6 @@
-<<<<<<< HEAD
 # ERS AI Assistant
 =======
 #  AI Assistant
->>>>>>> 864a419898e91b401bdcb0ee4d8167758cd9615a
 
 An AI assistant for exploring ERS information through approved documentation and read-only database access. The application combines a Spring Boot and Spring AI backend with a React chat interface.
 
@@ -171,10 +169,3 @@ src/main/resources/  Backend configuration, prompts, MCP configuration, and sour
 frontend/src/         React chat interface and API client
 compose.yml           Local Keycloak, Redis, and Qdrant services
 ```
-<<<<<<< HEAD
-
-## License
-
-No license has been specified for this repository yet.
-=======
->>>>>>> 864a419898e91b401bdcb0ee4d8167758cd9615a
