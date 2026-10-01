@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # ERS AI Assistant
+=======
+#  AI Assistant
+>>>>>>> 864a419898e91b401bdcb0ee4d8167758cd9615a
 
 An AI assistant for exploring ERS information through approved documentation and read-only database access. The application combines a Spring Boot and Spring AI backend with a React chat interface.
 
@@ -93,6 +97,7 @@ npm run dev
 
 Open `http://localhost:3000` in a browser. Vite forwards `/api` requests to the backend at `http://localhost:8080`.
 
+<<<<<<< HEAD
 ### Java TLS certificate errors on the corporate network
 
 If the backend logs `PKIX path building failed` while calling OpenAI, the network is presenting a corporate HTTPS inspection certificate that the JDK does not trust. Do not disable TLS verification. Create a user truststore by exporting the corporate root and intermediate certificates from Windows, then add these VM options to the IntelliJ run configuration:
@@ -105,6 +110,8 @@ If the backend logs `PKIX path building failed` while calling OpenAI, the networ
 
 The truststore must contain the normal JDK certificates plus the corporate inspection chain. After applying the VM options, restart the backend and confirm that document loading no longer reports `SSLHandshakeException`.
 
+=======
+>>>>>>> 864a419898e91b401bdcb0ee4d8167758cd9615a
 ## API
 
 ### Send a chat message
@@ -164,7 +171,10 @@ src/main/resources/  Backend configuration, prompts, MCP configuration, and sour
 frontend/src/         React chat interface and API client
 compose.yml           Local Keycloak, Redis, and Qdrant services
 ```
+<<<<<<< HEAD
 
 ## License
 
 No license has been specified for this repository yet.
+=======
+>>>>>>> 864a419898e91b401bdcb0ee4d8167758cd9615a
